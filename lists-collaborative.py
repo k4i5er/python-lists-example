@@ -2,14 +2,12 @@
 # que desarrollen una aplicación que les permita administrar
 # listas de alumnos para sus distintos grupos.
 # Sus necesidades son las siguientes:
-# - Registrar el año de ingreso por alumno.
-# - Elaborar listas de alumnos por grupo.
+
 # - Agregar y eliminar alumnos de un grupo.
 # - Cambio de alumno a otro grupo.
 
 
-# - Registrar nombre completo y matrícula de los alumnos.
-# - Llevar registro de a qué grupo pertenece cada alumno.
+
 
 # Listas Justo Sierra
 
@@ -28,28 +26,39 @@
 # .
 # .
 # .
-# listasGenerales = [
-#   [
-#     201, 
-#     ["Alexandra Olea", 1928373726], 
-#     ["Osvaldo Pulido", 1928732832], 
-#     ["Julian Robal",   1928236626]
-#   ],
-#   [
-#     202, 
-#     ["Eduardo Olivares", 192837263],
-#     
-#     ["Estrella Terrazas", 19823762]
-#   ], 
-#   [
-#     203,
-#     ["Daniel Salado", 192837263],
-#   ]
-# ]
+listasGenerales = [
+  [
+    201, 
+    ["Alexandra Olea", 1928373726], 
+    ["Osvaldo Pulido", 1928732832], 
+    ["Julian Robal", 1928236626]
+  ],
+  [
+    202, 
+    ["Eduardo Olivares", 192837263],     
+    ["Estrella Terrazas", 19823762]
+  ], 
+  [
+    203,
+    ["Daniel Salado", 192837263],
+  ]
+]
+# Mostrar el índice del dato 201
+for lista in listasGenerales:
+  #print(primerNivel)
+  if 202 in lista:
+    print(lista)
+    break
+    
 
-listasGenerales = []
+# listasGenerales = []
 
-#def creaLista(listaGrupo):
+# - Registrar nombre completo y matrícula de los alumnos. --> OK
+# - Llevar registro de a qué grupo pertenece cada alumno. --> OK
+# - Registrar el año de ingreso por alumno. --> OK
+def agregaLista(listaGrupo):
+  listasGenerales.append(listaGrupo)
+  return
   
 
 def capturaInfo():
@@ -59,11 +68,33 @@ def capturaInfo():
   while True:
     nombre = input('Escribe el nombre completo del alumno: ')
     matricula = input('Escribe la matrícula del alumno: ')
-    lista.append([nombre, matricula])
+    anioIngreso = input('Escribe el año de ingreso del alumno: ')
+    lista.append([nombre, matricula, anioIngreso])
     opc = input('Deseas agregar más alumnos? (s/n): ')
     if(opc == 'n' or opc == 'N'):
+      # Llamamos a la función agregaLista con la nueva lista capturada
+      agregaLista(lista)
       break
   return
 
+# capturaInfo()
+# print(listasGenerales)
+# capturaInfo()
+# print(listasGenerales)
+# capturaInfo()
+# print(listasGenerales)
 
-capturaInfo()
+
+# - Elaborar listas de alumnos por grupo.
+
+# Grupo: 201
+# Matrícula       Nombres
+# 19384756        Gilberto López
+# 19827364        Alexandra Olea
+
+# def mostrarLista(grupo):
+#   if grupo in listasGenerales:
+#     for 
+
+
+# mostrarLista('205')
