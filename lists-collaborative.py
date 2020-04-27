@@ -1,10 +1,12 @@
+# César López Grupo: 201
+
 # La escuela Justo Sierra está contratando developers para 
 # que desarrollen una aplicación que les permita administrar
 # listas de alumnos para sus distintos grupos.
 # Sus necesidades son las siguientes:
 
-# - Agregar y eliminar alumnos de un grupo.
-# - Cambio de alumno a otro grupo.
+# - Agregar y eliminar alumnos de un grupo. 
+# - Cambio de alumno a otro grupo. --> TAREA
 
 
 
@@ -29,26 +31,29 @@
 listasGenerales = [
   [
     201, 
-    ["Alexandra Olea", 1928373726], 
-    ["Osvaldo Pulido", 1928732832], 
-    ["Julian Robal", 1928236626]
+    ["Alexandra Olea", 1928373726, 2019], 
+    ["Osvaldo Pulido", 1928732832, 2019], 
+    ["Julian Robal", 1928236626, 2019]
   ],
+
   [
     202, 
-    ["Eduardo Olivares", 192837263],     
-    ["Estrella Terrazas", 19823762]
-  ], 
+    ["Eduardo Olivares", 192837263, 2019],     
+    ["Estrella Terrazas", 19823762, 2019]
+  ],
+
   [
     203,
-    ["Daniel Salado", 192837263],
+    ["Daniel Salado", 192837263, 2019],
   ]
 ]
+
 # Mostrar el índice del dato 201
-for lista in listasGenerales:
-  #print(primerNivel)
-  if 202 in lista:
-    print(lista)
-    break
+# for lista in listasGenerales:
+#   #print(primerNivel)
+#   if 203 in lista:
+#     print(lista)
+#     break
     
 
 # listasGenerales = []
@@ -63,12 +68,12 @@ def agregaLista(listaGrupo):
 
 def capturaInfo():
   lista = []
-  grupo = input('Escribe el grupo: ')
+  grupo = int(input('Escribe el grupo: '))
   lista.append(grupo)
   while True:
     nombre = input('Escribe el nombre completo del alumno: ')
-    matricula = input('Escribe la matrícula del alumno: ')
-    anioIngreso = input('Escribe el año de ingreso del alumno: ')
+    matricula = int(input('Escribe la matrícula del alumno: '))
+    anioIngreso = int(input('Escribe el año de ingreso del alumno: '))
     lista.append([nombre, matricula, anioIngreso])
     opc = input('Deseas agregar más alumnos? (s/n): ')
     if(opc == 'n' or opc == 'N'):
@@ -85,16 +90,22 @@ def capturaInfo():
 # print(listasGenerales)
 
 
-# - Elaborar listas de alumnos por grupo.
+# - Elaborar listas de alumnos por grupo. -->OK
 
 # Grupo: 201
 # Matrícula       Nombres
 # 19384756        Gilberto López
 # 19827364        Alexandra Olea
 
-# def mostrarLista(grupo):
-#   if grupo in listasGenerales:
-#     for 
+def mostrarLista(grupo):
+  for lista in listasGenerales:
+    #print(primerNivel)
+    if grupo in lista:
+      print('Grupo:',lista[0])
+      print('Matrícula\t Nombres')
+      for alumno in range(len(lista)):
+        if alumno != 0:
+          print(lista[alumno][1],'\t',lista[alumno][0])
+      break
 
-
-# mostrarLista('205')
+mostrarLista(203)
