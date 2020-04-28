@@ -5,7 +5,6 @@
 # listas de alumnos para sus distintos grupos.
 # Sus necesidades son las siguientes:
 
-# - Agregar y eliminar alumnos de un grupo. 
 # - Cambio de alumno a otro grupo. --> TAREA
 
 
@@ -28,25 +27,25 @@
 # .
 # .
 # .
-listasGenerales = [
-  [
-    201, 
-    ["Alexandra Olea", 1928373726, 2019], 
-    ["Osvaldo Pulido", 1928732832, 2019], 
-    ["Julian Robal", 1928236626, 2019]
-  ],
+# listasGenerales = [
+#   [
+#     201, 
+#     ["Alexandra Olea", 1928373726, 2019], 
+#     ["Osvaldo Pulido", 1928732832, 2019], 
+#     ["Julian Robal", 1928236626, 2019]
+#   ],
 
-  [
-    202, 
-    ["Eduardo Olivares", 192837263, 2019],     
-    ["Estrella Terrazas", 19823762, 2019]
-  ],
+#   [
+#     202, 
+#     ["Eduardo Olivares", 192837263, 2019],     
+#     ["Estrella Terrazas", 19823762, 2019]
+#   ],
 
-  [
-    203,
-    ["Daniel Salado", 192837263, 2019],
-  ]
-]
+#   [
+#     203,
+#     ["Daniel Salado", 192837263, 2019],
+#   ]
+# ]
 
 # Mostrar el índice del dato 201
 # for lista in listasGenerales:
@@ -56,7 +55,7 @@ listasGenerales = [
 #     break
     
 
-# listasGenerales = []
+listasGenerales = []
 
 # - Registrar nombre completo y matrícula de los alumnos. --> OK
 # - Llevar registro de a qué grupo pertenece cada alumno. --> OK
@@ -97,15 +96,51 @@ def capturaInfo():
 # 19384756        Gilberto López
 # 19827364        Alexandra Olea
 
-def mostrarLista(grupo):
+def buscarGrupo(grupo):
   for lista in listasGenerales:
-    #print(primerNivel)
     if grupo in lista:
-      print('Grupo:',lista[0])
-      print('Matrícula\t Nombres')
-      for alumno in range(len(lista)):
-        if alumno != 0:
-          print(lista[alumno][1],'\t',lista[alumno][0])
-      break
+      return lista
 
-mostrarLista(203)
+def mostrarLista(grupo):
+  lista = buscarGrupo(grupo)
+  print('Grupo:',lista[0])
+  print('Matrícula\t Nombres')
+  for alumno in range(len(lista)):
+    if alumno != 0:
+      print(lista[alumno][1],'\t',lista[alumno][0])
+
+# mostrarLista(202)
+
+# - Agregar y eliminar alumnos de un grupo. 
+def agregaAlumno():
+  grupo = int(input('A qué grupo se va a agregar el alumno: '))
+  lista = buscarGrupo(grupo)
+  nombre = input('Nombre del alumno: ')
+  matricula = int(input('Matrícula del alumno: '))
+  anioIngreso = int(input('Año de ingreso: '))
+  # alumno = [nombre, matricula, anioIngreso]
+  # lista.append(alumno)
+  lista.append([nombre, matricula, anioIngreso])
+  return
+
+# agregaAlumno()
+# mostrarLista(203)
+
+def eliminaAlumno():
+  grupo = int(input('En qué grupo está el alumno a dar de baja: '))
+  lista = buscarGrupo(grupo)
+  matricula = int(input('Escribe la matrícula del alumno: '))
+  for alumno in range(len(lista)):
+    if alumno != 0:
+      if matricula in lista[alumno]:
+        lista.pop(alumno)
+        return
+
+capturaInfo()
+capturaInfo()
+mostrarLista(201)
+mostrarLista(202)
+agregaAlumno()
+mostrarLista(202)
+eliminaAlumno()
+mostrarLista(201)
