@@ -5,8 +5,6 @@
 # listas de alumnos para sus distintos grupos.
 # Sus necesidades son las siguientes:
 
-# - Cambio de alumno a otro grupo. --> TAREA
-
 
 
 
@@ -136,11 +134,59 @@ def eliminaAlumno():
         lista.pop(alumno)
         return
 
-capturaInfo()
-capturaInfo()
-mostrarLista(201)
-mostrarLista(202)
-agregaAlumno()
-mostrarLista(202)
-eliminaAlumno()
-mostrarLista(201)
+# - Cambio de alumno a otro grupo.
+def cambioAlumno(matricula, grupoSale, grupoEntra):
+  datosAlumno = []
+  listaActual = buscarGrupo(grupoSale)
+  listaNueva = buscarGrupo(grupoEntra)
+  for alumno in range(len(listaActual)):
+    if alumno != 0:
+      if matricula in listaActual[alumno]:
+        datosAlumno = listaActual[alumno].copy()
+        listaActual.pop(alumno)
+        listaNueva.append(datosAlumno)
+        return
+
+def cambiaAlumno():
+  grupoActual = int(input('Escribe el grupo donde se encuentra el alumno:'))
+  grupoNuevo = int(input('Escribe el grupo a donde se va a cambiar el alumno:'))
+  matricula = int(input('Escribe la matrícula del alumno:'))
+  listaActual = buscarGrupo(grupoActual)
+  listaNueva = buscarGrupo(grupoNuevo)
+  for alumno in range(len(listaActual)):
+    if alumno != 0:
+      if matricula in listaActual[alumno]:
+        # datosAlumno = listaActual[alumno].copy()
+        datosAlumno = listaActual[alumno][0:3]
+        print("datosAlumno:",datosAlumno) 
+        listaActual.pop(alumno)
+        listaNueva.append(datosAlumno)
+        return
+
+# Agregar la función de unir 2 grupos con las siguientes consideraciones:
+# - Pedir el número del grupo al cual se le van a agregar los demás estudiantes
+# - Borrar la lista de los estudiantes que se unieron al primer grupo
+# - Mostrar la nueva lista con todos los integrantes
+
+# capturaInfo()
+# capturaInfo()
+# mostrarLista(201)
+# mostrarLista(202)
+# # agregaAlumno()
+# # mostrarLista(202)
+# # eliminaAlumno()
+# # mostrarLista(201)
+# # cambioAlumno(19123, 201, 202)
+# cambiaAlumno()
+# mostrarLista(201)
+# mostrarLista(202)
+
+# Crear una lista con valores iniciales
+miLista = [1,2,3]
+miOtraLista = list((1,2,3))
+print(miLista)
+print(miOtraLista)
+dato = '1'
+print('dato',dato+'2')
+print('datoInt',int(dato)+2)
+print('datoLista',list((dato)))
