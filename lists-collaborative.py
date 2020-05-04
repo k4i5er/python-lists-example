@@ -25,25 +25,25 @@
 # .
 # .
 # .
-# listasGenerales = [
-#   [
-#     201, 
-#     ["Alexandra Olea", 1928373726, 2019], 
-#     ["Osvaldo Pulido", 1928732832, 2019], 
-#     ["Julian Robal", 1928236626, 2019]
-#   ],
+listasGenerales = [
+  [
+    201, 
+    ["Alexandra Olea", 1928373726, 2019], 
+    ["Osvaldo Pulido", 1928732832, 2019], 
+    ["Julian Robal", 1928236626, 2019]
+  ],
 
-#   [
-#     202, 
-#     ["Eduardo Olivares", 192837263, 2019],     
-#     ["Estrella Terrazas", 19823762, 2019]
-#   ],
+  [
+    202, 
+    ["Eduardo Olivares", 192837263, 2019],     
+    ["Estrella Terrazas", 19823762, 2019]
+  ],
 
-#   [
-#     203,
-#     ["Daniel Salado", 192837263, 2019],
-#   ]
-# ]
+  [
+    203,
+    ["Daniel Salado", 192837263, 2019],
+  ]
+]
 
 # Mostrar el índice del dato 201
 # for lista in listasGenerales:
@@ -53,7 +53,7 @@
 #     break
     
 
-listasGenerales = []
+# listasGenerales = []
 
 # - Registrar nombre completo y matrícula de los alumnos. --> OK
 # - Llevar registro de a qué grupo pertenece cada alumno. --> OK
@@ -167,6 +167,21 @@ def cambiaAlumno():
 # - Pedir el número del grupo al cual se le van a agregar los demás estudiantes
 # - Borrar la lista de los estudiantes que se unieron al primer grupo
 # - Mostrar la nueva lista con todos los integrantes
+def unirGrupos(grupoSale, grupoEntra):
+  # grupoSale = 201
+  # grupoEntra = 202
+  grupoActual = buscarGrupo(grupoSale) # Regresa la lista del grupo 201
+  grupoEntra = buscarGrupo(grupoEntra) # Regresa la lista del grupoo 202
+  # print(grupoActual)
+  for alumno in grupoActual:
+    if grupoActual.index(alumno) != 0:
+      grupoEntra.append(alumno)
+  # del listasGenerales[listasGenerales.index(grupoActual)]
+  listasGenerales.remove(grupoActual)
+  print (listasGenerales)
+  return
+
+unirGrupos(201, 202)
 
 # capturaInfo()
 # capturaInfo()
@@ -182,11 +197,11 @@ def cambiaAlumno():
 # mostrarLista(202)
 
 # Crear una lista con valores iniciales
-miLista = [1,2,3]
-miOtraLista = list((1,2,3))
-print(miLista)
-print(miOtraLista)
-dato = '1'
-print('dato',dato+'2')
-print('datoInt',int(dato)+2)
-print('datoLista',list((dato)))
+# miLista = [1,2,3]
+# miOtraLista = list((1,2,3))
+# print(miLista)
+# print(miOtraLista)
+# dato = '1'
+# print('dato',dato+'2')
+# print('datoInt',int(dato)+2)
+# print('datoLista',list((dato)))
